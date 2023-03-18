@@ -1,0 +1,20 @@
+<div class="form-group">
+  <div class='flex flex-row items-center'>
+    <label for="<%= @field %>" class="block text-sm font-medium text-slate-700">
+      <%= @label %>
+      <%- if @required %>
+        <span class="text-slate-400 text-xs font-normal italic">Required</span>
+      <% end %>
+      <%= image_tag "icons/icon_parsed.svg", name: "parsed_data", class: "float-right" if @is_parsed_data %>
+    </label>
+  </div>
+  <div class="relative mt-1 rounded-md shadow-sm">
+    <% inner_icons.each do |inner_icon| %>
+      <%= inner_icon %>
+    <% end %>
+    <%= @form.send(@field_type, @field, { label: @label, autofocus: @autofocus, autocomplete: @autocomplete, placeholder: @placeholder, disabled: @disabled, class: "block w-full rounded-md border-slate-300 focus:border-slate-500 focus:ring-slate-500 text-slate-500 text-base #{@classes} #{disabled_effect}", data: @data }.merge{@value ? {value: @value} : {}}) %>
+  </div>
+  <%- if @caption %>
+    <p class="mt-1 text-sm text-slate-600"><%= @caption %></p>
+  <% end %>
+</div>

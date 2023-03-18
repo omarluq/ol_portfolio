@@ -1,0 +1,22 @@
+<%= tag.div class: "relative pb-10 cursor-pointer", data: @data do %>
+  <% unless @last_step %>
+    <div class="absolute top-4 left-4 -ml-px mt-0.5 h-full w-0.5 bg-slate-300" aria-hidden="true"></div>
+  <% end %>
+  <div class="group relative flex items-start" aria-current="step">
+    <span class="flex h-9 items-center" aria-hidden="true">
+      <span class="<%= "relative z-10 flex h-8 w-8 items-center justify-center rounded-full border-2 #{@bg_color}" %>">
+        <% if @variant == :current %>
+            <span class="h-2.5 w-2.5 rounded-full bg-slate-700"></span>
+        <% elsif @variant == :upcoming %>
+            <span class="h-2.5 w-2.5 rounded-full bg-transparent group-hover:bg-slate-300"></span>
+        <% elsif @variant == :completed %>
+            <%= component 'ui/icon', locals: { name: :check, variant: :mini, size: :xsm, classes: 'text-tertiary' } %>
+        <% end %>
+      </span>
+    </span>
+    <span class="ml-4 flex min-w-0 flex-col">
+      <span class="<%= "text-sm font-medium #{@text_color}" %>"> <%= @title %></span>
+      <span class="text-sm text-slate-500"><%=@description%></span>
+    </span>
+  </div>
+<% end %>

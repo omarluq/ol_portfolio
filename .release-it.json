@@ -1,0 +1,56 @@
+{
+  "hooks": {
+    "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
+  },
+
+  "git": {
+    "changelog": "git log --pretty=format:\"* %s (%h)\" ${from}...${to}",
+    "requireCleanWorkingDir": true,
+    "requireBranch": false,
+    "requireUpstream": false,
+    "requireCommits": false,
+    "addUntrackedFiles": false,
+    "commit": true,
+    "commitMessage": "chore: Release v-${version}",
+    "commitArgs": [],
+    "tag": true,
+    "tagName": "v-${version}",
+    "tagMatch": null,
+    "tagAnnotation": "Release v-${version}",
+    "tagArgs": [],
+    "push": true,
+    "pushArgs": ["--follow-tags"],
+    "pushRepo": ""
+  },
+
+  "npm": {
+    "publish": false
+  },
+
+  "github": {
+    "release": true,
+    "releaseName": "Release v-${version}",
+    "releaseNotes": "echo '${changelog}' | sed 1,2d",
+    "autoGenerate": true,
+    "web": true
+  },
+
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "infile": "CHANGELOG.md",
+      "preset": {
+        "name": "conventionalcommits",
+        "types": [
+          {
+            "type": "feat",
+            "section": "Features"
+          },
+          {
+            "type": "fix",
+            "section": "Bug Fixes"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+<%= component_controller(style: "min-height: 716px", class: "flex-col flex 2xl:w-72") do %>
+  <div class="fixed w-inherit">
+    <div class="px-2 sm:px-8 flex flex-col justify-center sticky w-inherit">
+      <ul class="items-center justify-center flex-col flex w-inherit">
+        <%= component 'view/navbar/item', locals: { title: 'About', icon: 'book-open'} %>
+        <%= component 'view/navbar/item', locals: { title: 'Projects', icon: 'command-line'} %>
+        <%= component 'view/navbar/item', locals: { title: 'Blog', icon: 'computer-desktop'} %>
+        <%= component 'view/navbar/item', locals: { title: 'Contact', icon: 'at-symbol'} %>
+        <%= component 'view/navbar/item', locals: { title: 'Login', icon: 'user-circle', class: 'self-end justify-self-end inline sm:hidden'} %>
+      </ul>
+    </div>
+  </div>
+<% end %>
+
+        

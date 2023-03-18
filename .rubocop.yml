@@ -1,0 +1,70 @@
+require:
+  - rubocop-gitlab-security
+  - rubocop-rails
+  - rubocop-rspec
+
+inherit_gem:
+  test-prof: config/rubocop-rspec.yml
+
+AllCops:
+  TargetRubyVersion: 3.1
+  NewCops: disable
+
+  Exclude:
+    - 'config/initializers/exception-track.rb'
+    - 'db/seeds.rb'
+    - 'db/schema.rb'
+    - 'lib/templates/**/*'
+    - '**/bin/**/*'
+    - '**/node_modules/**/*'
+  # - '**/tmp/**/*'
+  #   - '*.gemspec'
+
+Style/Documentation:
+  Enabled: false
+
+Layout/LineLength:
+ Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Metrics/ParameterLists:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Lint/MissingSuper:
+  Enabled: false
+
+Lint/UnderscorePrefixedVariableName:
+  Enabled: false
+
+Rails/FilePath:
+  EnforcedStyle: arguments
+
+Rails/OutputSafety:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  EnforcedStyle: always
+  Exclude:
+    - 'db/migrate/*.rb'
+    - 'Gemfile'
+
+GitlabSecurity/PublicSend:
+  Enabled: false

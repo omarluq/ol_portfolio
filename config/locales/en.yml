@@ -1,0 +1,99 @@
+en:
+  time:
+    formats:
+      default: "%m/%d/%Y %I:%M%p" # 01/26/2023 07:39PM https://strftimer.com/ https://github.com/rails/rails/blob/b2eb1d1c55a59fee1e6c4cba7030d8ceb524267c/activesupport/lib/active_support/locale/en.yml#L3
+      short: "%b %d" # Update if needed
+      long: "%B %d, %Y" # Update if needed
+
+  date:
+    formats:
+      default: "%m/%d/%Y" # Update if needed
+      short: "%b %d" # Update if needed
+      long: "%B %d, %Y" # Update if needed
+  are_you_sure: "Are you sure?"
+
+  registrations:
+    create_link:
+      label: 'Don’t have an account?'
+      cta: 'Get Started'
+      
+  sessions:
+    new:
+      label: 'Sign in'
+      cta: 'Sign In'
+      loading_text: 'Signing in'
+    destroy:
+      label: 'Sign out'
+      cta: 'Sign Out'
+      loading_text: 'Signing out'
+    email_field:
+      label: 'Email'
+      placeholder: 'Enter Your Email Address'
+    password_field:
+      label: 'Password'
+      placeholder: 'Enter Password'   
+    remember_me: 'Remember me'
+    forgot_password: 'Forgot password?'
+    privacy_link:
+      label: 'Privacy Policy'
+    contact_link:
+      label: 'Contact Support'
+    create_link:
+      label: 'Don’t have an account?'
+      cta: 'Get Started'
+
+# TODO: Review remaining values. I'm not sure any below this line are used. —RTP
+
+  users:
+    sessions:
+      create:
+        incorrect_verification_code: "Incorrect verification code"
+    two_factor:
+      disabled: "Two-factor authentication is now disabled"
+      enabled: "Two-factor authentication was enabled successfully"
+      header: "Two-factor authentication"
+      submit: "Continue"
+      backup_codes:
+        header: "Backup Codes"
+        description: "Recovery codes are used to access your account in the event you cannot receive two-factor authentication codes."
+        warning: "Download, print, or copy your recovery codes before continuing."
+        save_codes: "Treat your recovery codes with the same level of attention as you would your password!"
+        cancel: "Cancel"
+        next: "Next"
+        copy_link: "Copy backup codes"
+        click_to_copy: "Copy backup codes"
+      verify:
+        header: "Scan this barcode with your app."
+        subheader: "Scan the image above with the two-factor authentication app on your phone."
+        instructions_1_html: "Install Authy: %{ios} or %{android}"
+        instructions_2: "In the app, select \"Add account\""
+        instructions_3: "Choose \"Scan QR Code\""
+        verify_header: "Enter the six-digit code from the application"
+        verify_description: "After scanning the barcode image, the app will display a code that you can enter below."
+        cancel: "Cancel"
+        verify: "Verify"
+
+  settings:
+    passwords:
+      updated: "Your password was changed successfully."
+      edit:
+        update_password: "Update Password"
+        update: "Update"
+        two_factor:
+          header: "Two-factor Authentication"
+          description: "When you sign in, you will be required to enter a one-time code along to one of your devices."
+          enable: "Enable two-factor authentication"
+          disable: "Disable two-factor authentication"
+
+  registrations:
+    destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
+    edit:
+      are_you_sure: Are you sure?
+      cancel_my_account: Delete my account
+      currently_waiting_confirmation_for_email: 'Currently waiting confirmation for: %{email}'
+      leave_blank_if_you_don_t_want_to_change_it: leave blank if you don't want to change it
+      title: Edit Profile
+      unhappy: Unhappy?
+      update: Update
+      we_need_your_current_password_to_confirm_your_changes: we need your current password to confirm your changes
+      saving: "Saving..."

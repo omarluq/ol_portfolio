@@ -1,0 +1,55 @@
+<%= component_controller(class: 'flex flex-col w-full ml-10 md:ml-20 gap-10 2xl:ml-3') do %>
+  <div class='flex flex-col justify-end gap-10 2xl:flex-row-reverse'>
+    <div class='h-1/3 hidden lg:inline'>
+      <%= inline_svg_tag('bg.svg') %>
+    </div>
+    <div class='flex flex-col gap-5'>
+      <h1 class='lg:text-6xl md:text-5xl text-4xl text-slate-700 font-bold'> Hi there! </h1>
+      <p class='text-slate-400 text-sm font-semibold sm:text-2xl'> I'm Omar and I'm a full-stack software engineer residing in Austin, Texas. </br>
+                        My primary focus is Ruby on Rails development, but I also have experience with multiple other languages, SRE, DevOps, and CloudDev. </br>
+                        I like to keep my stack diversified and stay up to do date on the latest cutting edge tech. </br>
+                        But I know when to go back to the basics and just build a solid Rails App. </br>
+                        I also find Linux fascinating and I'm particularly drawn to Arch Linux - there is something about customizing my own system that I find really rewarding. </br>
+                        When I'm not coding, I'm an avid gamer and enjoy playing World of Warcraft and Counter-Strike: Global Offensive. </br>
+                        Last but not least I consider myself what people call a bookworm who enjoys a good epic fantasy book. </br>
+                        Thank you for taking the time to learn a bit about me, and feel free to reach out if you have any questions or if you share similar interests. </br> </p>
+    </div>
+  </div>
+  <div class='flex flex-col gap-5'>
+    <h1 class='lg:text-6xl mb-5 md:text-5xl text-4xl text-slate-700 font-bold mt-5'> Technologies</h1>
+    <div class="text-ellipsis grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
+      <%= component 'view/about/tech_item', locals: { title: 'Linux', svg: 'archlinux' } %>
+      <%= component 'view/about/tech_item', locals: { title: 'Git', svg: 'git-icon' } %>
+      <%= component 'view/about/tech_item', locals: { title: 'Github', svg: 'github-white' } %>
+      <%= component 'view/about/tech_item', locals: { title: 'Gitlab', svg: 'gitlab' } %>
+      <%= component 'view/about/tech_item', locals: { title: 'Ruby', svg: 'ruby' } %>
+      <%= component 'view/about/tech_item', locals: { title: 'Rails', svg: 'rails-logo' } %>
+      <%= component 'view/about/tech_item', locals: { title: 'Go', svg: 'gopher' } %>
+      <%= component 'view/about/tech_item', locals: { title: 'Gin', svg: 'gin' } %>
+      <%= component 'view/about/tech_item', locals: { title: 'Elixir', svg: 'elixirlang' } %>
+      <%= component 'view/about/tech_item', locals: { title: 'Phoenix', svg: 'phoenix' } %>
+      <%= component 'view/about/tech_item', locals: { title: 'HTML5', svg: 'html-5' } %>
+      <%= component 'view/about/tech_item', locals: { title: 'CSS3', svg: 'css-3' } %>
+      <%= component 'view/about/tech_item', locals: { title: 'Sass', svg: 'sass' } %>
+      <%= component 'view/about/tech_item', locals: { title: 'Tailwind CSS', svg: 'tailwind-css-icon' } %>
+      <%= component 'view/about/tech_item', locals: { title: 'Javascript', svg: 'javascript' } %>
+      <%= component 'view/about/tech_item', locals: { title: 'Node', svg: 'nodejs-icon' } %>
+      <%= component 'view/about/tech_item', locals: { title: 'Serverless', svg: 'serverless' } %>
+      <%= component 'view/about/tech_item', locals: { title: 'Stimulus', svg: 'stimulus-icon' } %>
+      <%= component 'view/about/tech_item', locals: { title: 'Svelte Kit', svg: 'svelte-icon' } %>
+      <%= component 'view/about/tech_item', locals: { title: 'React', svg: 'react' } %>
+      <%= component 'view/about/tech_item', locals: { title: 'AWS', svg: 'aws' } %>
+      <%= component 'view/about/tech_item', locals: { title: 'Terraform', svg: 'terraform-icon' } %>
+      <%= component 'view/about/tech_item', locals: { title: 'Docker', svg: 'docker-icon' } %>
+      <%= component 'view/about/tech_item', locals: { title: 'CircleCI', svg: 'circleci' } %>
+      <%= component 'view/about/tech_item', locals: { title: 'Github Actions', svg: 'github-actions' } %>
+      <%= component 'view/about/tech_item', locals: { title: 'New Relic', svg: 'new-relic-icon' } %>
+      <%= component 'view/about/tech_item', locals: { title: 'PostgreSQL', svg: 'postgresql' } %>
+      <%= component 'view/about/tech_item', locals: { title: 'MySQL', svg: 'mysql-icon' } %>
+      <%= component 'view/about/tech_item', locals: { title: 'MongoDB', svg: 'mongodb-icon' } %>
+      <%= component 'view/about/tech_item', locals: { title: 'GraphQL', svg: 'graphql' } %>
+      <%= component 'view/about/tech_item', locals: { title: 'Redis', svg: 'redis' } %>
+      <%= component 'view/about/tech_item', locals: { title: 'ElasticSearch', svg: 'elasticsearch' } %>
+    </div>
+  </div>
+<% end %>

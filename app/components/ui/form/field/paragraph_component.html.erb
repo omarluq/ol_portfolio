@@ -1,0 +1,19 @@
+<div class="form-group">
+  <div class='flex flex-row items-center'>
+    <%= @form.label @label, class: "block text-base font-medium text-slate-700" %>
+    <div class="text-slate-400 ml-1">
+      <% if @required %>
+        <span>Required</span>
+      <% end %>
+      <% if @optional && !@required %>
+        <span>Optional</span>
+      <% end %>
+    </div>
+  </div>
+  <div class="relative mt-1 rounded-md shadow-sm">
+    <%= @form.send(@field_type, @field, { label: @label, autofocus: @autofocus, autocomplete: @autocomplete, placeholder: @placeholder, disabled: @disabled, rows: @rows, class: "trix-content #{disabled_effect} w-full block appearance-none rounded-md border border-slate-300 px-3 py-2 placeholder-slate-400 shadow-sm focus:border-slate-500 focus:outline-none focus:ring-slate-500 sm:text-sm disabled:border-slate-200 disabled:bg-slate-50 disabled:text-slate-500 #{@classes} fit-content", data: @data }.merge{@value ? {value: @value} : {}}) %>
+  </div>
+  <% if @caption %>
+    <p class="mt-3 text-sm text-slate-600"><%= @caption %></p>
+  <% end %>
+</div>

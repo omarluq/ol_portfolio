@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html style="background-color: <%= params[:lookbook][:display][:bg_color] %>">
+  <head>
+    <title>Component Preview Layout</title>
+
+    <%= action_cable_meta_tag %>
+    <%= turbo_boost.meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  </head>
+  <body>
+    <div style="max-width: <%= params[:lookbook][:display][:max_width] || '100%' %>">
+      <% if params[:lookbook][:display][:wrapper] == true %>
+      <div class="wrapper"><%= yield %></div>
+      <% else %> <%= yield %> <% end %>
+    </div>
+  </body>
+</html>

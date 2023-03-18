@@ -1,0 +1,24 @@
+<%= component_controller class: 'max-w-fit' do %>
+  <div class='max-w-fit' data-reflex-permanent>
+    <%= trigger %>
+  </div>
+  <div id="<%= "popup_container_for_#{key}" %>", class='w-full'>
+    <% unless @hidden  %>
+      <%= component 'ui/modal/smoke_screen', locals: {data: reflex_data_attributes(:close)} do %>
+        <div id='modal-body' class='min-w-1/2 relative transform overflow-hidden rounded-lg bg-black px-4 pt-5 pb-4 shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6' style='z-index:9999' data-action='click->application-controller#stopProp'>
+          <%= close_icon %>
+          <div class='mt-5'>
+            <%= content %>
+          </div>
+          <div class='flex flex-row'>
+            <%= cancel_action %>
+            <% actions.each do |action| %>
+              <%= action %>
+            <% end %>
+            <%= form_submit_action %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

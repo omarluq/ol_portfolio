@@ -1,0 +1,11 @@
+<div class="form-group">
+  <%= @form.label @label, class: "block text-sm font-medium text-slate-700"%>
+  <%= @form.select @field, @collection,
+                  { include_blank: @include_blank } ,
+                  { class: "#{disabled_effect} #{@multiple_class} form-control w-full block appearance-none rounded-md border border-slate-300 px-3 py-2 placeholder-slate-400 shadow-sm focus:border-slate-500 focus:outline-none focus:ring-slate-500 sm:text-sm",
+                    multiple: @multiple,
+                    data: @data } %>
+  <% if @caption %>
+    <p class="mt-3 text-sm text-slate-600"><%= @caption %></p>
+  <% end %>
+</div>

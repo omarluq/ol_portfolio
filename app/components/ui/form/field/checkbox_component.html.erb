@@ -1,0 +1,10 @@
+
+<div class="relative flex items-start">
+  <div class="flex h-5 items-center">
+    <%= @form.check_box @field, disabled: @disabled, class: "#{@disabled_effect} h-4 w-4 rounded border-slate-300 text-slate-600 focus:ring-slate-500",  id: @id, data: @data %>
+  </div>
+  <div class="<%= @direction %> ml-3 text-sm">
+    <label for="comments" class="font-medium text-slate-700"><%= @label %></label>
+    <p id="comments-description" class="text-slate-500 <%= @spacing %>"><%= @description %></p>
+  </div>
+</div>

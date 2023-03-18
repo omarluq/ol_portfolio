@@ -1,0 +1,31 @@
+<div>
+  <div class='flex flex-row items-center'>
+    <%= @form.label @label, class: "block text-base font-medium text-slate-700" %>
+    <div class="text-slate-400 ml-1">
+      <% if @required %>
+        <span>Required</span>
+      <% end %>
+      <% if @optional && !@required %>
+        <span>Optional</span>
+      <% end %>
+    </div>
+  </div>
+  <fieldset class="mt-4">
+    <div class="space-y-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-10">
+      <div class="flex items-center">
+        <input id="email" name="notification-method" type="radio" checked class="h-4 w-4 border-slate-300 text-indigo-600 focus:ring-indigo-500">
+        <label for="email" class="ml-3 block text-sm font-medium text-slate-700">Email</label>
+      </div>
+
+      <div class="flex items-center">
+        <input id="sms" name="notification-method" type="radio" class="h-4 w-4 border-slate-300 text-indigo-600 focus:ring-indigo-500">
+        <label for="sms" class="ml-3 block text-sm font-medium text-slate-700">Phone (SMS)</label>
+      </div>
+
+      <div class="flex items-center">
+        <input id="push" name="notification-method" type="radio" class="h-4 w-4 border-slate-300 text-indigo-600 focus:ring-indigo-500">
+        <label for="push" class="ml-3 block text-sm font-medium text-slate-700">Push notification</label>
+      </div>
+    </div>
+  </fieldset>
+</div>

@@ -1,0 +1,12 @@
+<tr class='hover:bg-slate-100'>
+    <% unless @columns.empty? || @resource.nil? %>
+        <% @columns.each do |col| %>
+            <td class='pl-4 py-3 text-left whitespace-nowrap text-sm text-slate-900 max-w-max'><%= @resource[col].to_s.html_safe if @resource[col] %></td>
+        <% end %>
+    <% else %>
+         <td class='pl-4 py-3 text-left whitespace-nowrap text-sm text-slate-900'> Missing render metrial</td>
+    <% end %>
+    <td class='pl-4 py-3 text-left whitespace-nowrap text-sm text-slate-900 max-w-max hover:cursor-pointer'>
+        <%= actions_dropdown %>
+    </td>
+</tr>

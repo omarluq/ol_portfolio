@@ -1,0 +1,3 @@
+<%= component_controller class: 'flex flex-col m-2 p-2' do %>
+  <%= @form_obj.input(@field, type: :checkbox, label: @label, **@opts).html_safe %>
+<% end.html_safe %>

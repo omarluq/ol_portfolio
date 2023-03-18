@@ -1,0 +1,92 @@
+<%= component_controller do %>
+    <div id='error-container'></div>
+    <div class='p-5 flex flex-row gap-20 border-slate-400 w-full'>
+      <%= tag.form data: reflex_data_attributes('submit->submit') do %>
+        <div class='flex flex-row gap-5'>
+          <div class='flex flex-col gap-5'>
+            <div class='relative p-5 flex flex-col gap-6 bg-black border-1 rounded-md border-black shadow-md  pl-6 mt-3'>
+              <div class='flex flex-col'>
+                  <h1 class='text-xl'>Workflow Template Info</h1>
+                  <p class='text-sm text-slate-500'> Information required to create a new workflow template </p>
+              </div>
+              <div class='absolute top-0 right-0 mb-5'>
+                <%= component 'ui/link/button', locals: {label: 'Step', icon: 'plus', classes: 'rounded-none rounded-tr-md h-full border-slate-500', data: reflex_data_attributes(:new_step)} %>
+              </div>
+              <div class='flex flex-col gap-5'>
+                <div class='flex flex-col'>
+                  <%= label('Template Name') %>
+                  <%= tag.input name: 'workflow_template[name]', type: :text, id: :name, class: 'w-full block appearance-none rounded-md border border-slate-300 px-3 py-2 placeholder-slate-400 shadow-sm focus:border-slate-500 focus:outline-none focus:ring-slate-500 sm:text-sm disabled:border-slate-200 disabled:bg-slate-50 disabled:text-slate-500'  %>
+                </div>
+                <div class='flex flex-col'>
+                  <%= label('Workflow Type') %>
+                  <%= tag.select name: 'workflow_template[flow_type]', id: :flow_type, data: reflex_data_attributes('input->available_liquid_drops').merge({ 'te-select-init': '', 'reflex-permanent': '' }), class: 'w-full block appearance-none rounded-md border border-slate-300 px-3 py-2 placeholder-slate-400 shadow-sm focus:border-slate-500 focus:outline-none focus:ring-slate-500 sm:text-sm' do %>
+                      <%= tag.option 'Select Workflow Type', value: '', disabled: true, selected: true  %>
+                    <% WorkflowTemplate.flow_types.each do |flow_type| %>
+                      <%= tag.option flow_type.first.humanize, value: flow_type.first  %>
+                    <% end %>
+                  <% end %>
+                </div>
+                <div class='flex flex-col'>
+                  <%= label('Client') %>
+                  <%= tag.select name: 'workflow_template[client_id]', id: :client_id, data: reflex_data_attributes('input->select_client').merge({ 'te-select-init': '', 'reflex-permanent': '' }), class: 'w-full block appearance-none rounded-md border border-slate-300 px-3 py-2 placeholder-slate-400 shadow-sm focus:border-slate-500 focus:outline-none focus:ring-slate-500 sm:text-sm' do %>
+                      <%= tag.option 'Select Client', value: '', disabled: true, selected: true  %>
+                    <% Client.all.each do |client| %>
+                      <%= tag.option client.name.humanize, value: client.id  %>
+                    <% end %>
+                  <% end %>
+                </div>
+                <% if @client.present? || @client&.teams.present? %>
+                  <div class='flex flex-col' id='teams_drops_down'>
+                    <%= label('Team') %>
+                    <%= tag.select name: 'workflow_template[team_id]', id: :team_id, data: { 'te-select-init': '' }, class: 'w-full block appearance-none rounded-md border border-slate-300 px-3 py-2 placeholder-slate-400 shadow-sm focus:border-slate-500 focus:outline-none focus:ring-slate-500 sm:text-sm' do %>
+                        <%= tag.option 'Select Team', value: '', disabled: true, selected: true  %>
+                      <% @client.teams.each do |team| %>
+                        <%= tag.option team.name.humanize, value: team.id  %>
+                      <% end %>
+                    <% end %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+            <div id='flow-steps-form-container' class='flex flex-col gap-6'>
+              <% @workflow_template.steps.each_with_index do |step, index| %>
+                <%= steps_nested_fields(step, disable_delete: index == 0) %>
+              <% end %>
+            </div>
+            <div class='flex flex-col gap-6 mt-3'>
+              <%= tag.input name: 'Submit', type: :submit,  class: 'inline-flex items-center justify-center whitespace-nowrap rounded-md border border-current bg-slate-500 px-4 py-2 text-base font-medium text-tertiary shadow-sm' %>
+            </div>
+          </div>
+          <div class='relative max-h-fit h-fit p-5 flex flex-col gap-6 bg-black border-1 rounded-md border-black shadow-md  pl-6 mt-3'>
+              <div class='flex flex-col'>
+                <h1 class='text-xl'>Transactions</h1>
+                <p class='text-sm text-slate-500'>You need a min of 2 steps to define transactions</p>
+              </div>
+              <% if @workflow_template.steps.size > 1 %>
+                <div class='absolute top-0 right-0'>
+                  <%= component 'ui/link/button', locals: {label: 'Transactions', icon: 'plus', classes: 'rounded-none rounded-tr-md h-full border-slate-500', data: reflex_data_attributes(:add_transaction_fields)} %>
+                </div>
+                <div class='flex flex-col gap-5 w-full pr-6' id='transactions-container' data-reflex-permanent>
+                  <%= transactions_input_fields(disable_delete: true) %>
+                </div>
+              <% end %>
+          </div>
+        </div>
+      <% end %>
+      <% if @available_drops.present? %>
+        <div class=' max-h-fit h-fit p-5 flex flex-col gap-6 bg-black border-1 rounded-md border-black shadow-md  pl-6 mt-3'>
+          <div class='flex flex-col'>
+            <h1 class='text-xl'><%= "Dyanmic params for #{@workflow_template.flow_type.humanize}" %></h1>
+            <p class='text-sm text-slate-500'>Params that can be refenced in actions</p>
+          </div>
+          <div class='grid grid-cols-2 gap-5'>
+            <% @available_drops.each do |drop| %>
+              <div class='flex items-start justify-center border-secondery-400 bg-slate-300 rounded-md p-2'>
+                <p class='text-sm text-slate-200'><%= drop %></p>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+<% end %>

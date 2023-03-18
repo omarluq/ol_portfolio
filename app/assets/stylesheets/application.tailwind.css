@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+  
+.pagy-nav.pagination {
+  @apply isolate inline-flex -space-x-px rounded-md shadow-sm h-full;
+}
+  
+.page.next a {
+  @apply relative inline-flex items-center border border-slate-200 bg-black px-2 py-2 text-sm font-medium text-slate-500 hover:bg-slate-50 focus:z-20 h-full;
+}
+  
+.page.prev a {
+  @apply relative inline-flex items-center border border-slate-200 bg-black px-2 py-2 text-sm font-medium text-slate-500 hover:bg-slate-50 focus:z-20 h-full;
+}
+  
+.page.next.disabled {
+  @apply relative inline-flex items-center border border-slate-200 bg-slate-100 px-2 py-2 text-sm font-medium text-slate-500 hover:bg-slate-50 focus:z-20 h-full;
+}
+  
+.page.prev.disabled {
+  @apply relative inline-flex items-center border border-slate-200 bg-slate-100 px-2 py-2 text-sm font-medium text-slate-500 hover:bg-slate-50 focus:z-20 h-full;
+}
+  
+.page a, .page.gap {
+  @apply bg-black border-slate-300 text-slate-500 hover:bg-slate-50 relative inline-flex items-center border px-4 py-2 text-sm font-medium focus:z-20 h-full;
+}
+  
+.page.active {
+  @apply z-10 border-slate-500 bg-slate-50 text-slate-600 relative inline-flex items-center border px-4 py-2 text-sm font-medium focus:z-20 h-full;
+}
+  
+.trix-content p, span, div {
+  @apply break-words whitespace-normal;
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  font-weight: 700;
+  src: url('work_sans_bold.ttf') format("truetype");
+}
+@font-face {
+  font-family: 'Oswald';
+  font-weight: 700;
+  src: url('oswald_bold.ttf') format("truetype");
+}
+
+@layer base {
+  html {
+    font-family: Oswald, system-ui;
+    font-family: Wrok Sans, system-ui;
+  }
+}

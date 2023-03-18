@@ -1,0 +1,17 @@
+<div class='flex flex-row border-t rounded-bl-lg border-slate-200 relative bg-black'>
+
+    <%= component 'ui/dropdown/menu' do |menu| %>
+        <%= menu.with_trigger do %>
+        <%= component 'ui/link/button', locals: { label: 'Export', icon: 'arrow-down-tray', classes: 'py-3 shadow-none border-none rounded-bl-lg bg-black text-slate-500 hover:cursor-pointer text-sm text-slate-200' }  %>
+
+        <% end %>
+        <%= menu.with_section do |section| %>
+            <%= section.with_item(label: 'CSV', icon: 'csv', use_assets_icons: true) %>
+            <%= section.with_item(label: 'JSON', icon: 'json', use_assets_icons: true) %>
+        <% end %>
+    <% end %>
+
+    <span class='flex flex-row items-center border-slate-200 h-full absolute right-0'>
+        <%= pagination_bar %>
+    </span>
+</div>

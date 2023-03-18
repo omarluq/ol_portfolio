@@ -1,0 +1,47 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'fileutils'
+
+# path to your application root.
+APP_ROOT = File.expand_path('..', __dir__)
+
+def system!(*args)
+  system(*args) || abort('== Command #{args} failed ==')
+end
+
+FileUtils.chdir APP_ROOT do
+  # This script is a way to set up or update your development environment automatically.
+  # This script is idempotent, so that you can run it at any time and get an expectable outcome.
+  # Add necessary setup steps to this file.
+
+  # Run after setting up .env file
+
+  puts '== Installing and system dependencies =='
+  system('brew install redis')
+  system('brew services start redis')
+  system('brew install vips')
+  system('brew install freetds')
+
+  puts '== Installing gem dependencies =='
+  system! 'gem install bundler --conservative'
+  system('bundle check') || system!('bundle install')
+
+  puts '== Setup rails cache for development =='
+  unless File.exist?('./tmp/caching-dev.txt')
+    system! 'bin/rails dev:cache'
+  end
+
+  puts '== Installing foreman =='
+  system! 'sudo gem install foreman'
+
+  puts '== Installing overcommit =='
+  system! 'overcommit --install'
+  system! 'overcommit --sign'
+
+  puts '== Installing yarn dependencies =='
+  system! 'yarn install --check-files'
+
+  puts '== Preparing database =='
+  system! 'bin/rails db:drop db:create db:migrate db:seed'
+end

@@ -1,0 +1,80 @@
+/*
+ * Provides a drop-in pointer for the default Trix stylesheet that will format the toolbar and
+ * the trix-editor content (whether displayed or under editing). Feel free to incorporate this
+ * inclusion directly in any other asset bundle and remove this file.
+ *
+ *= require trix
+*/
+
+/*
+ * We need to override trix.css’s image gallery styles to accommodate the
+ * <action-text-attachment> element we wrap around attachments. Otherwise,
+ * images in galleries will be squished by the max-width: 33%; rule.
+*/
+.trix-content .attachment-gallery > action-text-attachment,
+.trix-content .attachment-gallery > .attachment {
+  flex: 1 0 33%;
+  padding: 0 0.5em;
+  max-width: 33%;
+}
+
+.trix-content .attachment-gallery.attachment-gallery--2 > action-text-attachment,
+.trix-content .attachment-gallery.attachment-gallery--2 > .attachment, .trix-content .attachment-gallery.attachment-gallery--4 > action-text-attachment,
+.trix-content .attachment-gallery.attachment-gallery--4 > .attachment {
+  flex-basis: 50%;
+  max-width: 50%;
+}
+
+.trix-content action-text-attachment .attachment {
+  padding: 0 !important;
+  max-width: 100% !important;
+}
+
+.trix-content a:not(.no-underline) {
+  text-decoration: underline;
+  color: rgb(79 70 229);
+}
+
+/* Set icon for a tags in trix editor with class external, the external class is set in config/initializers/action_text.rb */
+.trix-content a.external {
+  background: url('/assets/icons/icon_arrow-up-right-a594e8350a138a750354224a729834f881349c1c271a12003c2171c5fad75424.svg') center right no-repeat;
+  padding-right: 25px;
+}
+
+/* .trix-content a:visited {
+  color: rgb(79 70 229);
+} */
+
+.trix-content ul {
+  list-style-type: disc;
+  padding-left: 1rem;
+}
+
+.trix-content ul ul {
+  list-style-type: circle;
+  padding-left: 1rem;
+}
+
+.trix-content ul ul ul {
+  list-style-type: square;
+  padding-left: 1rem;
+}
+
+.trix-content ol {
+  list-style-type: decimal;
+  padding-left: 1rem;
+}
+
+.trix-content ol ol {
+  list-style-type: upper-alpha;
+  padding-left: 1rem;
+}
+
+.trix-content ol ol ol {
+  list-style-type: lower-alpha;
+  padding-left: 1rem;
+}
+
+.customized-min-height {
+  min-height: 15em !important;
+}

@@ -1,0 +1,42 @@
+<div>
+  <label for="phone-number" class="block text-sm font-medium text-slate-700">Phone Number</label>
+  <div class="relative mt-1 rounded-md shadow-sm">
+    <div class="absolute inset-y-0 left-0 flex items-center">
+      <label for="country" class="sr-only">Country</label>
+      <select id="country" name="country" autocomplete="country" class="h-full rounded-md border-transparent bg-transparent py-0 pl-3 pr-7 text-slate-500 focus:border-slate-500 focus:ring-slate-500 sm:text-sm">
+        <option>US</option>
+        <option>CA</option>
+        <option>EU</option>
+      </select>
+    </div>
+    <input type="text" name="phone-number" id="phone-number" class="block w-full rounded-md border-slate-300 pl-16 focus:border-slate-500 focus:ring-slate-500 sm:text-sm" placeholder="+1 (555) 987-6543">
+    <div class="absolute inset-y-0 right-0 flex items-center">
+      <label for="country" class="sr-only">Country</label>
+      <select id="country" name="country" autocomplete="country" class="h-full rounded-md border-transparent bg-transparent py-0 pl-3 pr-7 text-slate-500 focus:border-slate-500 focus:ring-slate-500 sm:text-sm">
+        <option>Mobile</option>
+        <option>Home</option>
+        <option>Work</option>
+      </select>
+    </div>
+
+  </div>
+</div>
+
+<div>
+  <label for="email" class="block text-sm font-medium text-slate-700">Phone Number</label>
+  <div class="mt-1 flex rounded-md shadow-sm">
+    <div class="relative flex flex-grow items-stretch focus-within:z-10">
+      <input type="email" name="email" id="email" class="block w-full rounded-none rounded-l-md border-slate-300 pl-3 focus:border-slate-500 focus:ring-slate-500 sm:text-sm" placeholder="+1 (555) 987-6543">
+      <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-slate-500 sm:text-sm">
+        Mobile
+      </div>
+    </div>
+    <button type="button" class="relative -ml-px inline-flex items-center space-x-2 rounded-r-md border border-slate-300 bg-slate-50 px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-500">
+      <!-- Heroicon name: mini/phone -->
+      <svg class="h-5 w-5 text-slate-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+        <path fill-rule="evenodd" d="M2 3.5A1.5 1.5 0 013.5 2h1.148a1.5 1.5 0 011.465 1.175l.716 3.223a1.5 1.5 0 01-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 006.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 011.767-1.052l3.223.716A1.5 1.5 0 0118 15.352V16.5a1.5 1.5 0 01-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 012.43 8.326 13.019 13.019 0 012 5V3.5z" clip-rule="evenodd" />
+      </svg>
+      <span>Call</span>
+    </button>
+  </div>
+</div>

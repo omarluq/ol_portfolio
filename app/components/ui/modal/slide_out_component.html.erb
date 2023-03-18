@@ -1,0 +1,22 @@
+<%= component_controller do %>
+  <div class='max-w-fit hover:cursor-pointer' data-reflex-permanent>
+    <%= trigger %>
+  </div>
+    <div id="<%= "slideout_container_for_#{key}" %>" class='invisible'>
+      <div class='inset-0 overflow-hidden' style='z-index:9999'>
+        <div id="<%= "modal_body_for_#{key}" %>" class='translate-x-full transform transition-all ease-in-out duration-300 absolute top-0 right-0 h-full min-w-1/2 w-fit overflow-hidden p-4 bg-black sm:w-full sm:max-w-sm sm:p-6 flex flex-col rounded-tl-lg' style='z-index:9999'>
+          <%= close_icon %>
+          <div class='mt-5'>
+            <%= content %>
+          </div>
+          <div class='flex flex-row'>
+            <%= cancel_action %>
+            <% actions.each do |action| %>
+              <%= action %>
+            <% end %>
+            <%= form_submit_action %>
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>

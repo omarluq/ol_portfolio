@@ -1,0 +1,8 @@
+<%= component_controller(class:"w-inherit #{@visbility}") do %>
+  <li class='<%= "m-2 p-2 flex justify-center 2xl:justify-between text-slate-400 w-11/12 cursor-pointer items-center mb-6 #{@class}" %>'>
+    <a href="<%= @url %>" class="flex text-xl rounded-md font-medium">
+      <%= component 'ui/icon', locals: { name: @icon, size: :md } %>
+      <span class="ml-2 hidden 2xl:inline"><%= @title %></span>
+    </a>
+  </li>
+<% end %>

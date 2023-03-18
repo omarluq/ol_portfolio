@@ -1,0 +1,11 @@
+<%= component_controller do %>
+  <div class="relative inline-block text-left">
+    <%= trigger %>
+    <div id="<%= "menu_for_#{key}" %>" class="transition ease-out duration-300 translate-y-2 opacity-0 scale-95 invisible absolute right-0 mt-2 origin-top-right divide-y divide-slate-100 rounded-md bg-black shadow-lg focus:outline-none w-max drop-shadow-2xl overflow-visisble" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1" style="z-index:9997">
+      <% sections.each do |section| %>
+        <%= section %>
+      <% end %>
+    </div>
+    <div id="<%= "hidden-close-button-for-active-dropdown-#{key}" %>" class="invisible fixed inset-0 w-full h-full" data-reflex="click->Ui::Dropdown::MenuComponent#close" data-key="<%= key %>" style="z-index:9996"></div>
+  </div>
+<% end %>

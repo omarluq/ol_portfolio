@@ -1,0 +1,16 @@
+<%= component_controller class: 'w-full sticky top-0 bg-black' do %>
+  <div class="w-full flex flex-row justify-start items-center px-8">
+    <div aria-label="Home" role="img" class="mr-5 flex w-72">
+      <%= inline_svg_tag('logo/svg/logo-no-background.svg', class: 'h-32') %>
+    </div>
+    <div class="justify-end items-center mb-4 w-full px-6 gap-5 hidden sm:flex">
+      <div class="relative text-slate-400">
+        <div class="absolute left-2 top-2 m-auto w-4 h-4">
+          <%= component 'ui/icon', locals: { name: 'magnifying-glass', size: :sm } %>
+        </div>
+        <input class="bg-transparent focus:outline-none rounded w-full text-sm placeholder-slate-600 pl-10 py-2 mr-4 focus:ring-slate-400 focus:border-slate-400 active:ring-slate-400" type="text" placeholder="Coming Soon.." />
+      </div>
+      <%= component 'ui/link/button', locals: { label: 'login'} %>
+    </div>
+  </div>
+<% end %>

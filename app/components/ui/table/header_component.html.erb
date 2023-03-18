@@ -1,0 +1,38 @@
+<%= component_controller class: 'max-h-fit' do %>
+    <div class='flex flex-row bg-slate-100 relative'>
+        <% if @title %>
+            <span class="flex items-center text-slate-500 font-semibold w-fit p-2 px-4 border-r border-slate-200">
+                <%= component 'ui/icon', locals: { name: @icon, size: :xsm, use_assets_icons: @use_assets_icons } if @icon %>
+                <span class="ml-2 text-sm"><%= @title %></span>
+            </span>
+        <% end %>
+
+        <span data-bs-toggle='collapse' data-bs-target="<%= "#filters_for_#{key}" %>" class='flex flex-row items-center w-fit px-5 py-3 border-r border-slate-200 text-slate-500 hover:cursor-pointer'>
+            <%= component 'ui/icon', locals: { name: 'icon_filters', size: :xsm, use_assets_icons: true  } %>
+            <p class="ml-2 text-sm text-slate-200">Filtters</p>
+        </span>
+
+        <span data-bs-toggle='collapse' data-bs-target="<%= "#batch_actions_for_#{key}" %>" class='flex flex-row items-center w-fit px-5 py-3 border-r border-slate-200 text-slate-500 hover:cursor-pointer'>
+            <%= component 'ui/icon', locals: { name: 'squares-plus', size: :xsm  } %>
+            <p class="ml-2 text-sm text-slate-200">Batch Actions</p>
+        </span>
+
+        <span class='flex flex-row items-center absolute right-0 border-l border-slate-200 w-fit h-full'>
+            <% actions.each do |action| %>
+                <%= action %>
+            <% end %>
+        </span>
+    </div>
+    <div id="<%= "filters_for_#{key}" %>" class="collapse w-full relative bg-black grid border-t border-slate-200">
+        <p> filter </p>
+        <p> filter </p>
+        <p> filter </p>
+        <p> filter </p>
+    </div>
+    <div id="<%= "batch_actions_for_#{key}" %>" class="collapse w-full relative bg-black grid border-t border-slate-200">
+        <p> batch_action </p>
+        <p> batch_action </p>
+        <p> batch_action </p>
+        <p> batch_action </p>
+    </div>
+<% end %>

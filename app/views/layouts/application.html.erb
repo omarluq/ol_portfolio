@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html class="h-full scroll-smooth md:scroll-auto" style="scroll-behavior: smooth;">
+  <head>
+    <title>OmarLuq</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= action_cable_meta_tag %>
+    <%= turbo_boost.meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= render "shared/favicons" %>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body data-controller='application-controller' class="h-full antialiased font-normal leading-normal bg-black">
+    <div class="main flex flex-col gap-5 w-full">
+      <%= component 'view/navbar/header' %>
+      <div class='flex flex-row gap-5 w-full'>
+        <%= component 'view/navbar/side_panel' %>
+        <div class="h-full col-span-8 row-span-6 p-10 w-10/12 xl:p-5 pt-0 mr-3 sm:mr-0">
+          <div id='errors_container'></div>
+          <div id='alerts_container'></div>
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </body>
+  <%= component 'view/footer/base' %>
+</html>

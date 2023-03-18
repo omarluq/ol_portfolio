@@ -1,0 +1,13 @@
+
+<div aria-label="group of cards" tabindex="0" class="flex flex-col w-full ml-10 md:ml-20 gap-10 2xl:ml-3">
+  <div class='flex flex-col gap-5'>
+    <h1 class='lg:text-6xl md:text-5xl text-4xl text-slate-700 font-bold'> Disclaimer! </h1>
+    <p class='text-slate-400 text-sm font-semibold sm:text-2xl'> I'm currently working on rebuilding my portfolio of projects and recently moved most of my older projects to archived/private status. </br>
+                      Below are some of my all time faviorte projects that I've worked on. </br></p>
+  </div>
+  <div class="flex flex-col w-full gap-10">
+    <%= component 'view/projects/item', locals: { name: 'keycloak_rails', type: 'Ruby Gem', des: 'Integration with the redhats open source sso server', tags: ['auth', 'rails', 'redhat'], url: 'https://github.com/omarluq/keycloak_rails'} %>
+    <%= component 'view/projects/item', locals: { name: 'activerecord-liquid-drops', type: 'Ruby Gem', des: 'Intgerates activerecord models with shopifys drops class', tags: ['templates', 'shopify', 'liquid', 'rails'], url: 'https://github.com/omarluq/activerecord_liquid_drops'} %>
+    <%= component 'view/projects/item', locals: { name: 'Cyber Wars', type: 'JS Web Game', des: 'Just a fun web game made with html canvas and some vanilla JS', tags: ['html', 'canvas', 'vanillaJS'], url: 'https://github.com/omarluq/CyberWars'} %>
+  </div>
+</div>

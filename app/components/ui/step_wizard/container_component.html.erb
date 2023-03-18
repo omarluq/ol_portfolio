@@ -1,0 +1,19 @@
+<%= component_controller class: 'h-full flex items-center' do %>
+        <div class='w-full h-full flex flex-row items-start justify-center gap-80'>
+                <% steps.each do |step| %>
+                    <%= step %>
+                <% end %>
+                <%= nav_panel.with_content(nav_items) %>
+        </div>
+<% end %>
+<div class='absolute bottom-0 left-0 bg-black border-t-1 w-full'>
+    <div class ='flex-row flex gap-80 justify-center py-3'>
+        <div class='flex flex-row gap-2'>
+            <%= component 'ui/link/button', locals: { label: 'Previous', data: reflex_data_attributes(:previous).merge(current_step: 1), classes: 'bg-black border-1 border-black text-slate-500', _id: 'step_wizard_previous_button', icon: 'arrow-left' } %>
+            <%= component 'ui/link/button', locals: { label: 'Next', data: reflex_data_attributes(:next).merge(current_step: 1), classes: 'bg-black border-1 border-black text-slate-500', _id: 'step_wizard_next_button', icon: 'arrow-right', icon_position: :right } %>
+        </div>
+        <div>
+            <%= component 'ui/link/button', locals: { label: 'Cancel', classes: 'bg-black border-1 border-black text-slate-500', icon: :trash } %>
+        </div>
+    </div>
+</div>

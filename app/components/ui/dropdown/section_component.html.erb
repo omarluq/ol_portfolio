@@ -1,0 +1,16 @@
+<div class='border-b border-slate-200 pb-1'>
+  <% if @label %>
+    <div class='pb-1 pt-1'>
+      <p class='px-3 py-0.5 font-semibold text-base text-slate-800'><%= @label %></p>
+      <% if @description %>
+        <p class="<%= "px-3 py-0.5 text-xs text-slate-400 font-light #{@classes}" %>"><%= @description %></p>
+      <% end %>
+    </div>
+  <% end %>
+
+  <ul>
+    <% items.each do |item| %>
+      <li><%= item %></li>
+    <% end %>
+  </ul>
+</div>
