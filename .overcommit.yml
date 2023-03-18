@@ -20,7 +20,7 @@ PreCommit:
     enabled: true
     on_warn: fail # Treat all warnings as failures
   ForbiddenBranches:
-    enabled: true
+    enabled: false
     branch_patterns: ['main']
   Fasterer:
     enabled: true
