@@ -11,7 +11,9 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <%= render "shared/favicons" %>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <% if Rails.env.development? %>
+      <script src="https://cdn.tailwindcss.com"></script>
+    <% end %>
   </head>
   <body data-controller='application-controller' class="h-full antialiased font-normal leading-normal bg-black">
     <div class="main flex flex-col gap-5 w-full">

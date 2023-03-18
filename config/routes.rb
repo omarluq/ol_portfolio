@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     get :contact, to: 'static#root'
   end
 
-  root to: 'static#root'
+  root to: redirect('/about')
 end
 
 # == Route Map

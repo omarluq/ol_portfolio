@@ -41,7 +41,7 @@ Rails.application.configure do
   config.action_dispatch.cookies_same_site_protection = :strict
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
-  config.active_storage.service = :amazon
+  config.active_storage.service = :local
   config.active_storage.resolve_model_to_route = :rails_storage_proxy
 
   # Mount Action Cable outside main process or domain.
@@ -72,7 +72,7 @@ Rails.application.configure do
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
-  config.cache_store = :redis_cache_store, { driver: :hiredis, url: ENV.fetch('REDIS_CACHE_URL') }
+  config.cache_store = :redis_cache_store, { driver: :hiredis, url: ENV.fetch('REDIS_URL') }
   config.session_store :cache_store, key: "__Host-c_sessions_#{Rails.env}", compress: true, pool_size: 5, expire_after: 1.year
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
